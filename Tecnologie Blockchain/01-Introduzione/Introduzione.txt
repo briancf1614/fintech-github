@@ -1,0 +1,1 @@
+L'obiettivo del corso è offrire un'introduzione alle tecnologie Blockchain con cenni sulle modalità di funzionamento delle criptovalute. In particolare verranno approfonditi gli aspetti di Bitcoin, Ethereum e la programmazione degli smart contract con Solidity e i registri ditribuiti permissioned con il progetto Hyperledger

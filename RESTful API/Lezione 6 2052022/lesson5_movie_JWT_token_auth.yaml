@@ -1,0 +1,303 @@
+openapi: 3.0.0
+info:
+  title: Movie API
+  description: store my favourite movies
+  version: 0.1.0
+servers:
+  - url: https://bestmovie.spinforward.it/api/v1/
+    description: Production BestMovie server
+  - url: https://bestmovie-staging.spinforward.it/api/v1/
+    description: Staging BestMovie server
+paths:
+  /jwt/token/refresh/:
+    get:
+      responses:
+        '405':
+          description: Metho not Allowed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: Method "GET" not allowed
+    post:
+      summary: JWT 
+      description: obtain a new JWT access token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                  refresh:
+                      type: string
+                      example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1MzEyNjMzOSwiaWF0IjoxNjUzMDM5OTM5LCJqdGkiOiJkNjY1MTUyZjQ3MDg0NTBkOTg1M2QxMGI2Yzg5OTk5MiIsInVzZXJfaWQiOjJ9.ikypEHsaOpLdL34HzyCg0Gz1AqYPuNXjtuPrEuhIFt8
+             
+      responses:
+        '200':
+          description: two JWT token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access:
+                    type: string
+                    example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzMDQwMjM5LCJpYXQiOjE2NTMwMzk5MzksImp0aSI6IjAwOWM5OWZhYWVhODRmMWU5ODcxMWQ1ZWNjMWFmNzAzIiwidXNlcl9pZCI6Mn0.1qrvG1OQXRfAvehWrcbm3q6azDxfVFd4KWrt4gmSnh8
+  /jwt/token/:
+    get:
+      responses:
+        '405':
+          description: Metho not Allowed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: Method "GET" not allowed
+    post:
+      summary: JWT 
+      description: obtain JWT access and refresh token
+      requestBody:
+        content:
+          application/json:
+            
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: pippo
+                password:
+                  type: string
+                  example: pluto123
+      responses:
+        '200':
+          description: two JWT token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    refresh:
+                      type: string
+                      example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1MzEyNjMzOSwiaWF0IjoxNjUzMDM5OTM5LCJqdGkiOiJkNjY1MTUyZjQ3MDg0NTBkOTg1M2QxMGI2Yzg5OTk5MiIsInVzZXJfaWQiOjJ9.ikypEHsaOpLdL34HzyCg0Gz1AqYPuNXjtuPrEuhIFt8
+                    access:
+                      type: string
+                      example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUzMDQwMjM5LCJpYXQiOjE2NTMwMzk5MzksImp0aSI6IjAwOWM5OWZhYWVhODRmMWU5ODcxMWQ1ZWNjMWFmNzAzIiwidXNlcl9pZCI6Mn0.1qrvG1OQXRfAvehWrcbm3q6azDxfVFd4KWrt4gmSnh8
+  # /auth/:
+  #   get:
+  #     responses:
+  #       '405':
+  #         description: Metho not Allowed
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 detail:
+  #                   type: string
+  #                   example: Method "GET" not allowed
+        
+  #   post:
+  #     summary: login endpoin
+  #     description: return an auth token
+  #     requestBody:
+  #       content:
+  #         application/x-www-form-urlencode:
+  #           schema:
+  #             type: object
+  #             properties:
+  #               username:
+  #                 type: string
+  #                 example: pippo
+  #               password:
+  #                 type: string
+  #                 example: pluto123
+  #     responses:
+  #       '200':
+  #         description: OK token generated
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 token:
+  #                   type: string
+  #                   example: 1b1840e50967c70dcd589c9ff424218c775c1c59 
+                    
+  #       '400':
+  #         description: Bad request
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 non_field_errors:
+  #                   type: string
+  #                   example: Unable to log in with provided credentials.
+                    
+  /need_auth/movie/:
+    get:
+      summary: Movies Resources List
+      description: Movies Resources List
+      security:
+        - bearer: []
+      responses:
+        '200':
+          description: A JSON array of movies
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/movies'
+        '401':
+          description: Authentication credentials were not provided
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    detail:
+                      type: string
+                      example: Authentication credentials were not provided
+  /movie/:
+    get:
+      summary: Movies Resources List
+      description: Movies Resources List
+      responses:
+        '200':
+          description: A JSON array of movies
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/movies'
+    post:
+      summary: Add a new Movie
+      description: Add a new Movie
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/movie'
+      responses:
+        '201':
+          description: Movie succesfully added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/movie'
+        '400':
+          description: This moviie alredy exist
+  /movie/{id}:
+    description: Get a Movie based on id parameter
+    get:
+      parameters: 
+        - in: path
+          name: id
+          example: 8
+          required: True
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success Response, a movie has been founded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/movie'
+        '404':
+          description: Movie with the specified ID was not found
+        '400':
+          description: The spcified ID is invalid (not a number))
+    delete:
+      parameters: 
+        - in: path
+          name: id
+          example: 8
+          required: True
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Movie successfully deleted
+        '404':
+          description: Movie with the specified ID was not found
+    put:
+      parameters: 
+        - in: path
+          name: id
+          example: 8
+          required: True
+          schema:
+            type: integer
+      summary: Update an existing Movie
+      description: Update an existing Movie
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/movie'
+      responses:
+        '200':
+          description: Movie succesfully updated   
+      
+components:
+  schemas:
+    movie:
+      type: object
+      properties:
+        MovieID:
+          type: integer
+          example: 8
+        MovieTitle:
+          type: string
+          example: Eyes Wide Shut
+        MovieGenre:
+          type: string
+          example: Comedy
+    movies:
+      type: array
+      items:
+        properties:
+          MovieID:
+            type: integer
+            example: 8
+          MovieTitle:
+            type: string
+            example: Eyes Wide Shut
+          MovieGenre:
+            type: string
+            example: Comedy   
+
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      
+    bearer:
+      type: http
+      scheme: bearer
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+  
+
