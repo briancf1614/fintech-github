@@ -1,0 +1,9 @@
+slice(): Il suo obiettivo è prendere gli elementi di un array atraverso i diversi 
+parametri che gli si attribuiscono, e li inserirsci dentro un nuovo array,
+naturalmente è anche posibile cancellare elementi atraverso i parametri dati.
+
+splice(): Il suo obiettivo principale è creare un nuovo array, puo cancellare 
+elementi di un array attraverso i parametri che gli si viene assegnato,
+inoltre può anche aggiungere elementi dentro l'array.
+
+

@@ -1,0 +1,71 @@
+body {
+    background-color: rgb(174, 250, 224);
+
+    }
+    
+.rane {
+    margin: 100px;
+}
+
+.rana {
+    float: left;
+    margin: 20px;
+    border: none; /*3px solid black*/
+}
+
+
+.rana.big{
+    width: 400px;
+    height:200px;
+}
+
+.rana.small{
+    width: 200px;
+    height:100px;
+}
+
+.corpo.rosso {
+    background-color: red;
+}
+.corpo.verde {
+    background-color: green;
+}
+.corpo {
+    border: 3px solid black;
+    border-radius: 40%;
+    width: 96%;
+    height: 96%;
+    
+}
+
+.occhio {
+    border: 3px solid black;
+    width: 30%;
+    height: 50%;
+    border-radius: 100%;    
+}
+.rana.verde .occhio {
+    background-color: rgb(0, 70, 0);
+}
+.rana.rosso .occhio {
+    background-color: rgb(88, 6, 6);
+}
+
+.occhio.destro{
+    float: right; 
+}
+
+.occhio.sinistro{
+    float: left; 
+}
+.occhio.nero {
+    background-color: black;
+}
+.rana:hover .occhio {
+    background-color: black;
+    
+}
+
+
+
+

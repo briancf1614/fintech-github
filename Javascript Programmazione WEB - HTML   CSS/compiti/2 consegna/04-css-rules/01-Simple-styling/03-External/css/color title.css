@@ -1,0 +1,15 @@
+h1{
+    color: rgb(201, 53, 53);
+    font-size: xx-large;
+    font-family: cursive;
+    background-color: rgb(215, 180, 255);
+}
+h2{
+    color: rgb(0, 119, 255);
+    font-size:xx-large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+li p{
+    color: darkgreen;
+    border-style: outset;
+}

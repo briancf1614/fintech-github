@@ -1,0 +1,19 @@
+function assignGrade(number_score){
+    if(number_score<18){
+    console.log("F");}
+    if(number_score<=23&number_score>=18){
+    console.log("E");}
+    if(number_score<=26&number_score>=24){
+    console.log("D");}
+    if(number_score<=28&number_score>=27){
+    console.log("C");}
+    if(number_score<30&number_score>=29){
+    console.log("B");}
+    if(number_score>=30){
+    console.log("A");}
+}
+assignGrade(30);
+assignGrade(25);
+assignGrade(18);
+assignGrade(5);
+assignGrade(29);

@@ -1,0 +1,51 @@
+body{background-color: rgb(167, 230, 209);}
+h1{
+    text-decoration:underline double red;
+    padding: 5px;
+    background-color: rgb(221, 120, 120);
+    border: 5px solid rgb(4, 67, 184);
+    margin: 0 auto;
+    width:max-content
+}
+img {
+    width: 30%;
+    margin: 5%;
+}
+
+#lala{
+    text-decoration:rgb(247, 20, 20) ;
+    padding: 5px;
+    background-color: rgb(216, 168, 145);
+    border: 5px coral solid;
+}
+#tempo {
+    padding: 5px;
+    background-color: rgb(235, 255, 164);
+    border: 10px rgb(163, 163, 163);
+    border-style: outset double;
+    margin: 10px;
+    }
+#giorni{
+    padding: 5px;
+    background-color: rgb(207, 160, 252);
+    border: 10px;
+    border-style:double;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+#calendario{
+    padding: 5px;
+    background-color: blanchedalmond;
+    border: 30px inset rgb(48, 182, 223);
+    border-radius: 30px;
+    margin-bottom: 110px;
+}
+#calendario,#giorni,#tempo {
+    text-align: center;
+}
+span {
+    color: blueviolet;
+    font-size: larger;
+    font-family: cursive;
+    background-color: rgb(210, 187, 231);
+}

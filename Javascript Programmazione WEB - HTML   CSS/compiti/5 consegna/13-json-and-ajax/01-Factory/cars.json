@@ -1,0 +1,67 @@
+[
+   {
+      "id":400, 
+      "Name":"chevrolet camaro",
+      "Miles_per_Gallon":27,
+      "Cylinders":4,
+      "Displacement":151,
+      "Horsepower":90,
+      "Weight_in_lbs":2950,
+      "Acceleration":17.3,
+      "origin":["1982-01-01","USA"],
+      "used":true,
+      "demolition":null
+   },
+   {
+      "id":149, 
+      "Name":"volkswagen dasher",
+      "Miles_per_Gallon":26,
+      "Cylinders":4,
+      "Displacement":79,
+      "Horsepower":67,
+      "Weight_in_lbs":1963,
+      "Acceleration":15.5,
+      "origin":["1974-01-01","Europe"],
+      "used":true,
+      "demolition":null
+   },
+   {
+      "id":293, 
+      "Name":"ford ltd landau",
+      "Miles_per_Gallon":17.6,
+      "Cylinders":8,
+      "Displacement":302,
+      "Horsepower":129,
+      "Weight_in_lbs":3725,
+      "Acceleration":13.4,
+      "origin":["1979-01-01","USA"],
+      "used":true,
+      "demolition":null
+   },
+   {
+      "id":74, 
+      "Name":"mercury marquis",
+      "Miles_per_Gallon":11,
+      "Cylinders":8,
+      "Displacement":429,
+      "Horsepower":208,
+      "Weight_in_lbs":4633,
+      "Acceleration":11,
+      "origin":["1972-01-01","USA"],
+      "used":true,
+      "demolition":null
+   },
+   {
+      "id":382, 
+      "Name":"amc concord dl",
+      "Miles_per_Gallon":23,
+      "Cylinders":4,
+      "Displacement":151,
+      "Horsepower":null,
+      "Weight_in_lbs":3035,
+      "Acceleration":20.5,
+      "origin":["1982-01-01","USA"],
+      "used":true,
+      "demolition":null
+   }
+]

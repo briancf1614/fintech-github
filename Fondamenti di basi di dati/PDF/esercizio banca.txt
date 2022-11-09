@@ -1,0 +1,11 @@
+
+
+- Considera la struttura degli istituti bancari organizzati in agenzie dove sono depositati i conti correnti dei clienti. 
+
+- Per ogni agenzia devi ottenere informazioni relative al direttore (nome, cognome, indirizzo e-mail). 
+
+- La base di dati deve essere in grado di memorizzare i dati relativi ai movimenti effettuati su ciascun conto corrente (importo, tipo e data). 
+
+- Il tipo del movimento indica se si tratta di un prelievo o di un versamento. 
+
+- In ogni momento deve essere data la possibilità di conoscere il saldo del conto corrente.

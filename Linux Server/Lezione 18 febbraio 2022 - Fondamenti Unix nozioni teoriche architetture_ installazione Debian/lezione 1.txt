@@ -1,0 +1,12 @@
+Lezione 18 febbraio 2022 - Fondamenti Unix: nozioni teoriche architetture; installazione Debian
+Nel corso della lezioni è stata spiegata la differenza tra:
+
+- architettura basata su "bare metal";
+- virtual machines;
+- containers;
+- serverless.
+
+E' stato inoltre spiegato che cosa è un sistema GNU-Linux, che cosa sono le Distribuzioni Linux, che cosa è il Kernel e che cosa è la Shell.
+
+E' stata installata una macchina Debian all'interno di VM-Ware Player.
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html >
+    <html>
+<head>
+    <meta charset="utf-8">
+    <title>Candidatura per viaggi spaziali</title>
+    <meta name="organisazione" content="NASA">
+    <meta name="misione" content="viaggio spaziale">
+</head>
+
+
+<body>
+    <div><h1 style="color: rgb(0, 153, 255);">Candidatura per viaggi spaziali</h1></div>
+    <div><h2>Compila il modulo in modo corretto</h2></div>
+
+    <form action="https://ptsv2.com/t/s1bt1-1644792696/post" method="post">
+        <ul><br>
+            <li><label for="name">NOME:</label><br>
+                <input type="text" placeholder="inserisci il tuo nome"><i>In maiusculo please</i></li><br>
+            <li><label for="secondo nome">SECONDO NOME:</label><br>
+                <input type="text" placeholder="opzionale"><i>In maiusculo please</i></li><br>
+            <li><label for="cognome">COGNOME:</label><br>
+                <input type="text" placeholder="inserisci il tuo cognome"><i>In maiusculo please</i></li><br>   
+            <li><label for="sesso">SESSO:</label><br>
+                <input type="radio" name="genero" id="uomo" value="uomo">
+                <label for="uomo">Uomo</label>
+                <input type="radio" name="genero" id="donna" value="donna">
+                <label for="donna">Donna</label></li><br>
+            <li><label for="missione spaziale">SELEZIONA LA MISSIONE PER CUI STAI PARTICIPANDO:</label><br><br>
+                <ol>
+                    <li><input type="checkbox" name="missione1" id="viaggio/turistico" value="viaggio/turistico-missione1">
+                    <label for="viaggio/turistico">Viaggio/turistico</label></li>
+                    <li><input type="checkbox" name="missione2" id="missione/riparazione" value="missione/riparazione-missione2">
+                    <label for="missione/riparazione">Missione di riparazione di sateliti starlink</label></li>
+                    <li><input type="checkbox" name="missione3" id="missione/mineriaSpaziale" value="missione/mineriaSpaziale3-missione3">
+                    <label for="missione/mineriaSpaziale">Splorazione di asteroidi con minerali</label></li>
+                    <li><input type="checkbox" name="missione4" id="missioneTOP/SECRET" value="missioneTOP/SECRET-missione4">
+                    <label for="missioneTOP/SECRET">Missione ultrasecreta</label></li>
+                </ol><br>
+            <li><label for="eta">ETA:</label><br>
+                <input type="number" name="eta" id="eta" min="18" max="50" placeholder="Inserisci la tua eta"><i>Deve essere maggiore di 18 please</i></li><br>
+            <li><label for="colore-capelli">COLORE DI CAPELLI:</label><br>
+                <select name="colori" id="colore-capelli">
+                    <option value="rosso">rosso</option>
+                    <option value="verde">verde</option>
+                    <option value="blue">blue</option>
+                    <option value="giallo">giallo</option>
+                    <option value="marrone">marrone</option>
+                    <option value="nero">nero</option>
+                    <option value="violeta">violeta</option>
+                    <option value="bianco">bianco</option>
+                    <option value="arancione">arancione</option>
+                    <option value="ghinda">ghinda</option>
+                </select></li><br>
+            <li><label for="colore-occhi">COLORE DI OCCHI::</label><br>
+                <select name="colori" id="colore-occhi">
+                    <option value="rosso">rosso</option>
+                    <option value="verde">verde</option>
+                    <option value="blue">blue</option>
+                    <option value="giallo">giallo</option>
+                    <option value="marrone">marrone</option>
+                    <option value="nero">nero</option>
+                    <option value="violeta">violeta</option>
+                    <option value="bianco">bianco</option>
+                    <option value="arancione">arancione</option>
+                    <option value="ghinda">ghinda</option>
+                </select></li><br>
+            <li><label for="informazioni di contatto">INFORMAZIONI DI CONTATTO:</label><br><br>
+                <ul>
+                    <li><label for="email">E-MAIL:</label><br>
+                        <input type="email" placeholder="Inserisci la tua e-mail"style="width:7cm" id="email"></li><br>
+                    <li><label for="numero di telefono">NUMERO DI TELEFONO:</label><br>
+                        <input type="tel" placeholder="Inserisci il tuo numero di telefono" style="width:7cm"></li><br>
+                    <li><label for="indirizzo">INDIRIZZO:</label><br>
+                        <input type="text" name="indirizzo" id="indirizzo"style="width:7cm" placeholder="inserisci il tuo indirizzo">
+                    </li><br>
+                </ul>
+            <li><label for="peso">SELEZIONA IL TUO PESO IN KG:</label>
+                <ul>
+                    <li><input type="radio" name="peso" id="peso1">
+                    <label for="peso1">tra 50 e 60 kg</label></li>
+                    <li><input type="radio" name="peso" id="peso2">
+                    <label for="peso2">tra 60 e 70 kg</label></li>
+                    <li><input type="radio" name="peso" id="peso3">
+                    <label for="peso3">tra 70 e 80 kg</label></li>
+                    <li><input type="radio" name="peso" id="peso4">
+                    <label for="peso4">tra 80 e 90 kg</label></li>
+                    <li><input type="radio" name="peso" id="peso5">
+                    <label for="peso5">tra 90 e 100 kg</label></li>   
+                </ul></li><br>
+            <li>
+                <label for="biografia">SCRIVI LA TUA BIOGRAFIA:</label><i>massimo 255 caratteri</i>
+                <textarea name="biografia" id="biografia" cols="30" rows="10" maxlength="255" placeholder="inserisci una breve biografia (MAX-255 caratteri)"></textarea>
+            </li><br><br>
+            
+        </ul><li><button type="submit">inviare</button> <button type="reset">cancellare tutto</button></li>
+    </form>
+</body>

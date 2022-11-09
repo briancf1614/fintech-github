@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(121, 121, 121);
+}
+h1{
+    color: rgb(0, 0, 0);
+    font-size: 2em;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;}
+
+li{
+    font-family:"comic sans ms", cursive, sans-serif;
+}
+img{
+    width: 100%;
+    height: auto;
+    padding-left: 40%;
+}

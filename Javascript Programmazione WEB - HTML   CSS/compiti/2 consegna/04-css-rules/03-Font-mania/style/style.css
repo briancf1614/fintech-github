@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(171, 230, 230);
+}
+h1 {
+    color: blue;
+    font-size: xx-large;
+}
+h2 {
+    color: rgb(17, 9, 83);
+    font-size:x-large;
+}
+.testo {
+    color: rgb(87, 60, 150);
+}
+a {
+    color: red;
+}
+
+.giallo {
+    color: yellow;
+}

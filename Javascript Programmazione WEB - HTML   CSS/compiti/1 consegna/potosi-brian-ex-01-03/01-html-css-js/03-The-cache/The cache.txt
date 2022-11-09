@@ -1,0 +1,7 @@
+<link rel="stylesheet" href="css/styles.css?v=1.0">
+
+What does ?v=1.0 do?
+
+In pratica serve per dare l'ordine di scaricare dei file css, javascript, html, o immagini al browser. 
+Serve per non fare riscaricare di nuovo file identici al browser. 
+Cosi nel caso ci sia una nuova versione con un numero diverso il browser scarichera la nuova versione sostituendo la vecchia versione.

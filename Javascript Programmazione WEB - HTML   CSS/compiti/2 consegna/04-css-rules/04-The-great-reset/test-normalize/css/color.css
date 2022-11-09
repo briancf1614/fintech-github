@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(194, 243, 255);
+}
+p em{
+    color: rgb(170, 0, 255);
+    font-family: cursive;
+    font-size:larger;
+}
+
+h1, h2 #title, .subtitle{
+    color: coral;
+    font-family: monospace;
+    font-size:var(h1)
+}
+h1{
+    color: aqua;
+    font-family: cursive;
+    font-size: xx-large;
+}

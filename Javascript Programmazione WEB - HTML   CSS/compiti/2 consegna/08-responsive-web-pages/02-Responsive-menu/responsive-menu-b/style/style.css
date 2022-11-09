@@ -1,0 +1,49 @@
+body {
+    background-color: azure;
+}
+.menu {
+    display:grid;
+    justify-content: center;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+.opzione {
+    border: solid 2px;
+    padding: 25px;
+    text-align: center;
+    width: 100%;
+}
+@media screen and (min-width: 576px) {
+    .menu {
+    width: 100%;
+    padding: 5px 20px;
+    float: none;
+    font-size: 4.5em;
+    }
+}
+@media screen and (min-width: 768px) {
+    .menu {
+    width: 100%;
+    padding: 5px 20px;
+    float: none;
+    font-size: 3.5em;
+    }
+}
+@media screen and (min-width: 992px) {
+    .menu {
+    width: 100%;
+    padding: 5px 20px;
+    float: none;
+    font-size: 2.5em;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .menu {
+    width: 100%;
+    padding: 5px 20px;
+    float: none;
+    font-size: 1.8em;
+    }
+}
+
+

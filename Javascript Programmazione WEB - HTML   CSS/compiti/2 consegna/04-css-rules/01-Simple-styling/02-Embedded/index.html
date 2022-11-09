@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>esempio pagina</title>
+        <meta name="description" content="first-page">
+        <style>
+            h2{
+                color: rgb(207, 80, 57);
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: xx-large;
+            }
+            h1{
+                color: rgb(255, 0, 0);
+                font-family: cursive;
+                font-size:xx-large;
+                background-color:bisque;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <!--titolo-->
+        <h1>il titolo è ancora da asegnare:</h1><hr>
+        <form action="https://enj3sb6d7u1v.x.pipedream.net" method="get">
+        <ol>
+            <!--inserisci un checkbox-->
+                <li><h2>inserisci un checkbox</h2>
+                <input type="checkbox" name="option 1" id="first"><label for="first">qua cè qualcosa</label><br>
+                <input type="checkbox" name="option 2" id="second"><label for="second">anche qua dovrebbe esserci qualcosa</label><br>
+                <input type="checkbox" name="option 3" id="third"><label for="third">anche qua potrebbe esserci qualcosa</label><br>
+                <input type="checkbox" name="option 4" id="fourth"><label for="fourth">e anche qua dobrebbe esserci qualcosa</label></li>
+                <!--tra questi-->
+                <li><h2>tra questi:</h2>
+                <table>
+                    <colgroup id="a" span="4"></colgroup>
+                    <thead>
+                        <tr><th>opzione 1</th><th>opzione 2</th><th>opzione 3</th><th>opzione 4</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>rock</td><td>methal</td><td>cumbia</td><td>classica</td></tr>
+                    </tbody>
+                </table>
+                </li>
+                <!--seleziona uno-->
+                <li><h2>seleziona uno</h2>
+                    <p>seleziona una opzione:</p>
+                    <input type="radio" name="selection" id="1" value="1">
+                    <label for="1">rock</label>
+                    <input type="radio" name="selection" id="2" value="2">
+                    <label for="2">methal</label>
+                    <input type="radio" name="selection" id="3" value="3">
+                    <label for="3">cumbia</label>
+                    <input type="radio" name="selection" id="4" value="4">
+                    <label for="4">classica</label>
+                </li>
+                <!--inserisci una mail-->
+                <li><h2>inserisci il tuo email:</h2>
+                <label for="email">email:</label>
+                <input type="email" name="email" id="email">
+                </li>    
+        </ol>
+        <button type="submit">inviare</button><button type="reset">resetare</button>
+        </form>
+    </body>
+</html>

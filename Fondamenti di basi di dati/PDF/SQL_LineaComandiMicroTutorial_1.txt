@@ -1,0 +1,651 @@
+Microsoft Windows [Versione 10.0.14393]
+(c) 2016 Microsoft Corporation. Tutti i diritti sono riservati.
+
+c.iacobelli@FSD-2123-31 c:\xampp
+#mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 10.1.16-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+14 rows in set (0.02 sec)
+
+MariaDB [(none)]> create database concessionario5Ai;
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| concessionario5ai  |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+15 rows in set (0.00 sec)
+
+MariaDB [(none)]> drop database concessionario5Ai;
+Query OK, 0 rows affected (0.05 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+14 rows in set (0.00 sec)
+
+MariaDB [(none)]> use macchine;
+Database changed
+MariaDB [macchine]> CREATE TABLE marche
+    -> (
+    -> nome varchar(20) primary key,
+    -> nazione varchar(20) not null,
+    -> anno int
+    -> ) engine=innodb;
+Query OK, 0 rows affected (0.50 sec)
+
+MariaDB [macchine]> show tables;
++-----------------------+
+| Tables_in_macchine |
++-----------------------+
+| marche                |
++-----------------------+
+1 row in set (0.00 sec)
+
+MariaDB [macchine]> describe marche;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| nome    | varchar(20) | NO   | PRI | NULL    |       |
+| nazione | varchar(20) | NO   |     | NULL    |       |
+| anno    | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.08 sec)
+
+MariaDB [macchine]> show columns from marche;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| nome    | varchar(20) | NO   | PRI | NULL    |       |
+| nazione | varchar(20) | NO   |     | NULL    |       |
+| anno    | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+MariaDB [macchine]> INSERT INTO marche(nome,nazione,anno)
+    -> VALUES('fiat','italia',1899),
+    -> ('audi','germania',1909),
+    -> ('volvo','svezia',NULL);
+Query OK, 3 rows affected (0.06 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [macchine]> SELECT * FROM marche;
++-------+----------+------+
+| nome  | nazione  | anno |
++-------+----------+------+
+| audi  | germania | 1909 |
+| fiat  | italia   | 1899 |
+| volvo | svezia   | NULL |
++-------+----------+------+
+3 rows in set (0.00 sec)
+
+MariaDB [macchine]> INSERT INTO marche(nome,nazione,
+anno)
+    -> VALUES('fiat','stati uniti',1899);
+ERROR 1062 (23000): Duplicate entry 'fiat' for key 'PRI
+MARY'
+
+MariaDB [macchine]> INSERT INTO marche(nome,nazione,anno)
+    -> values('maserati','italia',null);
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------+
+| nome     | nazione  | anno |
++----------+----------+------+
+| audi     | germania | 1909 |
+| fiat     | italia   | 1899 |
+| maserati | italia   | NULL |
+| volvo    | svezia   | NULL |
++----------+----------+------+
+4 rows in set (0.00 sec)
+
+MariaDB [macchine]> quit;
+Bye
+
+MariaDB [macchine]> describe marche;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| nome    | varchar(20) | NO   | PRI | NULL    |       |
+| nazione | varchar(20) | NO   |     | NULL    |       |
+| anno    | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.05 sec)
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------+
+| nome     | nazione  | anno |
++----------+----------+------+
+| audi     | germania | 1909 |
+| fiat     | italia   | 1899 |
+| maserati | italia   | NULL |
+| volvo    | svezia   | NULL |
++----------+----------+------+
+4 rows in set (0.02 sec)
+
+MariaDB [macchine]> ALTER TABLE marche
+    -> CHANGE anno data date;
+Query OK, 4 rows affected, 2 warnings (0.98 sec)
+Records: 4  Duplicates: 0  Warnings: 2
+
+MariaDB [macchine]> show warnings;
++---------+------+-------------------------------------------+
+| Level   | Code | Message                                   |
++---------+------+-------------------------------------------+
+| Warning | 1265 | Data truncated for column 'data' at row 1 |
+| Warning | 1265 | Data truncated for column 'data' at row 2 |
++---------+------+-------------------------------------------+
+2 rows in set (0.00 sec)
+
+MariaDB [macchine]> describe marche;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| nome    | varchar(20) | NO   | PRI | NULL    |       |
+| nazione | varchar(20) | NO   |     | NULL    |       |
+| data    | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 0000-00-00 |
+| fiat     | italia   | 0000-00-00 |
+| maserati | italia   | NULL       |
+| volvo    | svezia   | NULL       |
++----------+----------+------------+
+4 rows in set (0.00 sec)
+
+MariaDB [macchine]> UPDATE marche
+    -> SET data='1909-05-03'
+    -> WHERE nome='audi';
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| fiat     | italia   | 0000-00-00 |
+| maserati | italia   | NULL       |
+| volvo    | svezia   | NULL       |
++----------+----------+------------+
+4 rows in set (0.00 sec)
+
+MariaDB [macchine]> UPDATE marche
+    -> SET data='11/7/1899'
+    -> WHERE nome='fiat';
+Query OK, 0 rows affected, 1 warning (0.06 sec)
+Rows matched: 1  Changed: 0  Warnings: 1
+
+MariaDB [macchine]> show warnings;
++---------+------+-------------------------------------------+
+| Level   | Code | Message                                   |
++---------+------+-------------------------------------------+
+| Warning | 1265 | Data truncated for column 'data' at row 1 |
++---------+------+-------------------------------------------+
+1 row in set (0.00 sec)
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| fiat     | italia   | 0000-00-00 |
+| maserati | italia   | NULL       |
+| volvo    | svezia   | NULL       |
++----------+----------+------------+
+4 rows in set (0.00 sec)
+
+MariaDB [macchine]> UPDATE marche
+    -> SET data='1899/07/11'
+    -> WHERE nome='fiat';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| fiat     | italia   | 1899-07-11 |
+| maserati | italia   | NULL       |
+| volvo    | svezia   | NULL       |
++----------+----------+------------+
+4 rows in set (0.00 sec)
+
+MariaDB [macchine]> UPDATE marche
+    -> SET nome='fca'
+    -> WHERE nome='fiat';
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| fca      | italia   | 1899-07-11 |
+| maserati | italia   | NULL       |
+| volvo    | svezia   | NULL       |
++----------+----------+------------+
+4 rows in set (0.02 sec)
+
+MariaDB [macchine]> DELETE FROM marche
+    -> WHERE nome='volvo';
+Query OK, 1 row affected (0.08 sec)
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| fca      | italia   | 1899-07-11 |
+| maserati | italia   | NULL       |
++----------+----------+------------+
+3 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nome,nazione
+    -> FROM marche;
++----------+----------+
+| nome     | nazione  |
++----------+----------+
+| audi     | germania |
+| fca      | italia   |
+| maserati | italia   |
++----------+----------+
+3 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nome,data
+    -> FROM marche
+    -> ORDER BY data;
++----------+------------+
+| nome     | data       |
++----------+------------+
+| maserati | NULL       |
+| fca      | 1899-07-11 |
+| audi     | 1909-05-03 |
++----------+------------+
+3 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nome,data
+    -> FROM marche
+    -> ORDER BY data DESC;
++----------+------------+
+| nome     | data       |
++----------+------------+
+| audi     | 1909-05-03 |
+| fca      | 1899-07-11 |
+| maserati | NULL       |
++----------+------------+
+3 rows in set (0.00 sec)
+
+MariaDB [macchine]> select nome, nazione
+    -> FROM marche
+    -> ORDER BY nazione;
++----------+----------+
+| nome     | nazione  |
++----------+----------+
+| audi     | germania |
+| fca      | italia   |
+| maserati | italia   |
++----------+----------+
+3 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nome,nazione,data
+    -> FROM marche
+    -> ORDER BY nazione, data;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| maserati | italia   | NULL       |
+| fca      | italia   | 1899-07-11 |
++----------+----------+------------+
+3 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nazione,nome
+    -> FROM marche
+    -> ORDER BY nazione, nome DESC;
++----------+----------+
+| nazione  | nome     |
++----------+----------+
+| germania | audi     |
+| italia   | maserati |
+| italia   | fca      |
++----------+----------+
+3 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nome, nazione
+    -> FROM marche
+    -> WHERE nazione='italia';
++----------+---------+
+| nome     | nazione |
++----------+---------+
+| fca      | italia  |
+| maserati | italia  |
++----------+---------+
+2 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nome,data
+    -> FROM marche
+    -> WHERE nazione='italia'
+    -> ORDER BY data;
++----------+------------+
+| nome     | data       |
++----------+------------+
+| maserati | NULL       |
+| fca      | 1899-07-11 |
++----------+------------+
+2 rows in set (0.00 sec)
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| fca      | italia   | 1899-07-11 |
+| maserati | italia   | NULL       |
++----------+----------+------------+
+3 rows in set (0.03 sec)
+
+MariaDB [macchine]> INSERT INTO marche(nome,nazione,data)
+    -> VALUES('bmw','germania','1916/03/07'),
+    -> ('ferrari','italia','1939/09/13'),
+    -> ('porsche','germania','1931/04/25');
+Query OK, 3 rows affected (0.08 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| bmw      | germania | 1916-03-07 |
+| fca      | italia   | 1899-07-11 |
+| ferrari  | italia   | 1939-09-13 |
+| maserati | italia   | NULL       |
+| porsche  | germania | 1931-04-25 |
++----------+----------+------------+
+6 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nome,data
+    -> FROM marche
+    -> WHERE data>='1900/1/1' AND data<='1999/12/31';
++---------+------------+
+| nome    | data       |
++---------+------------+
+| audi    | 1909-05-03 |
+| bmw     | 1916-03-07 |
+| ferrari | 1939-09-13 |
+| porsche | 1931-04-25 |
++---------+------------+
+4 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nome,data
+    -> FROM marche
+    -> WHERE data BETWEEN '1900/1/1' AND '1999/12/31';
++---------+------------+
+| nome    | data       |
++---------+------------+
+| audi    | 1909-05-03 |
+| bmw     | 1916-03-07 |
+| ferrari | 1939-09-13 |
+| porsche | 1931-04-25 |
++---------+------------+
+4 rows in set (0.00 sec)
+
+
+MariaDB [macchine]> SELECT nome,nazione
+    -> FROM marche
+    -> WHERE nome LIKE 'f%';
++---------+---------+
+| nome    | nazione |
++---------+---------+
+| fca     | italia  |
+| ferrari | italia  |
++---------+---------+
+2 rows in set (0.03 sec)
+
+MariaDB [macchine]> SELECT nome,nazione
+    -> FROM marche
+    -> WHERE nome LIKE '%i';
++----------+----------+
+| nome     | nazione  |
++----------+----------+
+| audi     | germania |
+| ferrari  | italia   |
+| maserati | italia   |
++----------+----------+
+3 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nome,nazione
+    -> FROM marche
+    -> WHERE nome LIKE '%m%';
++----------+----------+
+| nome     | nazione  |
++----------+----------+
+| bmw      | germania |
+| maserati | italia   |
++----------+----------+
+2 rows in set (0.00 sec)
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| bmw      | germania | 1916-03-07 |
+| fca      | italia   | 1899-07-11 |
+| ferrari  | italia   | 1939-09-13 |
+| maserati | italia   | NULL       |
+| porsche  | germania | 1931-04-25 |
++----------+----------+------------+
+6 rows in set (0.00 sec)
+
+MariaDB [macchine]> INSERT INTO marche(nome,nazione,data)VALUES('peugeot','francia',NULL);
+Query OK, 1 row affected (0.08 sec)
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| bmw      | germania | 1916-03-07 |
+| fca      | italia   | 1899-07-11 |
+| ferrari  | italia   | 1939-09-13 |
+| maserati | italia   | NULL       |
+| peugeot  | francia  | NULL       |
+| porsche  | germania | 1931-04-25 |
++----------+----------+------------+
+7 rows in set (0.00 sec)
+
+MariaDB [macchine]> SELECT nome,nazione
+    -> FROM marche
+    -> WHERE nazione='italia' OR nazione='francia';
++----------+---------+
+| nome     | nazione |
++----------+---------+
+| fca      | italia  |
+| ferrari  | italia  |
+| maserati | italia  |
+| peugeot  | francia |
++----------+---------+
+4 rows in set (0.02 sec)
+
+MariaDB [macchine]> SELECT nome,nazione
+    -> FROM marche
+    -> WHERE nazione IN('italia','francia');
++----------+---------+
+| nome     | nazione |
++----------+---------+
+| fca      | italia  |
+| ferrari  | italia  |
+| maserati | italia  |
+| peugeot  | francia |
++----------+---------+
+4 rows in set (0.02 sec)
+
+MariaDB [macchine]> select nome,data
+    -> FROM marche
+    -> WHERE data=NULL;
+Empty set (0.02 sec)
+
+MariaDB [macchine]> select nome,data
+    -> FROM marche
+    -> WHERE data IS NULL;
++----------+------+
+| nome     | data |
++----------+------+
+| maserati | NULL |
+| peugeot  | NULL |
++----------+------+
+2 rows in set (0.00 sec)
+
+MariaDB [macchine]> select nome,data
+    -> FROM marche
+    -> WHERE data IS NOT NULL;
++---------+------------+
+| nome    | data       |
++---------+------------+
+| audi    | 1909-05-03 |
+| bmw     | 1916-03-07 |
+| fca     | 1899-07-11 |
+| ferrari | 1939-09-13 |
+| porsche | 1931-04-25 |
++---------+------------+
+5 rows in set (0.00 sec)
+
+MariaDB [macchine]> select nome,nazione,YEAR(data)
+    -> FROM marche;
++----------+----------+------------+
+| nome     | nazione  | YEAR(data) |
++----------+----------+------------+
+| audi     | germania |       1909 |
+| bmw      | germania |       1916 |
+| fca      | italia   |       1899 |
+| ferrari  | italia   |       1939 |
+| maserati | italia   |       NULL |
+| peugeot  | francia  |       NULL |
+| porsche  | germania |       1931 |
++----------+----------+------------+
+7 rows in set (0.01 sec)
+
+MariaDB [macchine]> select nome,nazione,YEAR(data) As anno
+    -> FROM marche;
++----------+----------+------+
+| nome     | nazione  | anno |
++----------+----------+------+
+| audi     | germania | 1909 |
+| bmw      | germania | 1916 |
+| fca      | italia   | 1899 |
+| ferrari  | italia   | 1939 |
+| maserati | italia   | NULL |
+| peugeot  | francia  | NULL |
+| porsche  | germania | 1931 |
++----------+----------+------+
+7 rows in set (0.00 sec)
+
+MariaDB [macchine]> describe marche;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| nome    | varchar(20) | NO   | PRI | NULL    |       |
+| nazione | varchar(20) | NO   |     | NULL    |       |
+| data    | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.09 sec)
+
+MariaDB [macchine]> SELECT nome,data,(YEAR(CURDATE())-YEAR(data)) As anni
+    -> FROM marche;
++----------+------------+------+
+| nome     | data       | anni |
++----------+------------+------+
+| audi     | 1909-05-03 |  107 |
+| bmw      | 1916-03-07 |  100 |
+| fca      | 1899-07-11 |  117 |
+| ferrari  | 1939-09-13 |   77 |
+| maserati | NULL       | NULL |
+| peugeot  | NULL       | NULL |
+| porsche  | 1931-04-25 |   85 |
++----------+------------+------+
+7 rows in set (0.02 sec)
+
+MariaDB [macchine]> SELECT nome,data,(YEAR(CURDATE()
+)-YEAR(data)) As anni
+    -> FROM marche
+    -> WHERE (YEAR(CURDATE())-YEAR(data))=100;
++------+------------+------+
+| nome | data       | anni |
++------+------------+------+
+| bmw  | 1916-03-07 |  100 |
++------+------------+------+
+1 row in set (0.03 sec)
+
+
+MariaDB [macchine]> select * from marche;
++----------+----------+------------+
+| nome     | nazione  | data       |
++----------+----------+------------+
+| audi     | germania | 1909-05-03 |
+| bmw      | germania | 1916-03-07 |
+| fca      | italia   | 1899-07-11 |
+| ferrari  | italia   | 1939-09-13 |
+| maserati | italia   | NULL       |
+| peugeot  | francia  | NULL       |
+| porsche  | germania | 1931-04-25 |
++----------+----------+------------+
+7 rows in set (0.06 sec)
+
+MariaDB [macchine]> SELECT DISTINCT nazione
+    -> FROM marche;
++----------+
+| nazione  |
++----------+
+| germania |
+| italia   |
+| francia  |
++----------+
+3 rows in set (0.00 sec)
+
+MariaDB [macchine]> exit
+Bye
+
+c.iacobelli@FSD-2123-31 c:\xampp
+#
+
+
